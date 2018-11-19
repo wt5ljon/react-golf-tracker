@@ -1,18 +1,16 @@
-const initState = {
-  course : '',
-  tee: '',
-  score: 0,
-  rating: 0,
-  slope: 0
-};
+const initState = [];
 
 const golfReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'ADD_COURSE':
-      return {
+    case 'ADD_ROUND':
+      return [
         ...state,
-        uid: action.uid
-      }
+        action.round
+      ]
+    case 'REMOVE_ROUND':
+      return state.filter((round) => round.id !== action.id);
+    case 'SET_ROUNDS':
+      return action.rounds;
     default:
       return state;
   }

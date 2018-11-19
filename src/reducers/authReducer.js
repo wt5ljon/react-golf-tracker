@@ -1,5 +1,7 @@
 const initState = {
   uid: null,
+  firstName: null,
+  lastName: null,
   authError: null
 };
 

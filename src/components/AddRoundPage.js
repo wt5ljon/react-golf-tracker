@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { addRound } from '../actions/golfAction';
+import { startAddRound } from '../actions/golfAction';
 import Navbar from './Navbar';
 
 class AddRoundPage extends Component {
@@ -22,7 +22,7 @@ class AddRoundPage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log('add round');
-    this.props.add(this.state);
+    this.props.addRound(this.state);
   };
 
   render() {
@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: (roundData) => dispatch(addRound(roundData))
+    addRound: (round) => dispatch(startAddRound(round))
   };
 };
 

@@ -10,9 +10,9 @@ const Navbar = ({authenticated, logout}) => (
         <div className="container">
           <Link to="/" className="brand-logo">Golf Score Tracking</Link>
           <ul className="right">
-            {!authenticated && <li><Link to="/login">Login</Link></li>}
-            {!authenticated && <li><Link to="/signup">Signup</Link></li>}
-            {authenticated && <li><Link to="/" onClick={logout}>Logout</Link></li>}
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/" onClick={logout}>Logout</Link></li>
           </ul>
         </div>
       </nav>
@@ -21,7 +21,7 @@ const Navbar = ({authenticated, logout}) => (
 );
 
 const mapStateToProps = (state) => ({
-  authenticated: !!state.uid
+  authenticated: !!state.auth.uid
 });
 
 const mapDispatchToProps = dispatch => ({
