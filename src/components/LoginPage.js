@@ -23,11 +23,11 @@ class LoginPage extends Component {
 
   render() {
     const { authenticated, authError } = this.props;
-    if (authenticated) {
-      return (
-        <Redirect to='/' />
-      );
-    }
+    // if (authenticated) {
+    //   return (
+    //     <Redirect to='/' />
+    //   );
+    // }
     
     return (
       <div>
@@ -63,8 +63,8 @@ class LoginPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    authenticated: !!state.uid,
-    authError: state.authError
+    authenticated: !!state.auth.uid,
+    authError: state.auth.authError
   }
 };
 

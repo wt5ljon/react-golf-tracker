@@ -1,4 +1,4 @@
-import { firebase } from '../firebase/firebase';
+import database, { firebase} from '../firebase/firebase';
 
 export const login = uid => ({
   type: 'LOGIN',
@@ -21,10 +21,16 @@ export const signUp = (user) => {
   };
 };
 
-export const startSignUp = ({email, password}) => () => {
+export const startSignUp = ({email, password, firstName, lastName}) => () => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then(() => {
+  .then((auth) => {
     console.log('Sign Up Successful');
+    console.log(auth.user.uid);
+    return database.ref(`users/${auth.user.uid}`).set({
+      email,
+      userFirstName: firstName,
+      userLastName: lastName
+    })
   }).catch((error) => {
     console.log(error.code, error.message);
   });

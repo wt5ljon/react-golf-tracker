@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 require('dotenv').config({ path: '.env' });
 
 module.exports = () => {
-  const CSSExtract = new ExtractTextPlugin('styles.css');
   return {
     mode: 'development',
     entry: ['babel-polyfill', './src/app.js'],

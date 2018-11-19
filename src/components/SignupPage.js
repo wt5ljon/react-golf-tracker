@@ -27,7 +27,7 @@ class SignupPage extends Component {
 
   render() {
     const { uid, authError } = this.props;
-    if (uid) return <Redirect to='/' />
+    // if (uid) return <Redirect to='/' />
     
     return (
       <div>
@@ -74,8 +74,8 @@ class SignupPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    uid: state.uid,
-    authError: state.authError
+    uid: state.auth.uid,
+    authError: state.auth.authError
   }
 };
 
